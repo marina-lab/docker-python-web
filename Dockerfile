@@ -17,4 +17,7 @@ RUN set -x \
     && python uwsgiconfig.py --plugin plugins/python core \
     && python uwsgiconfig.py --plugin plugins/gevent core \
     && python uwsgiconfig.py --plugin plugins/transformation_gzip core \
+    && cp uwsgi /usr/local/bin \
+    && mkdir /usr/lib/uwsgi \
+    && cp *.so /usr/lib/uwsgi \
     && rm -rf /usr/src/uwsgi
