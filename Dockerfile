@@ -8,13 +8,8 @@ MAINTAINER sprin
 # We build gevent in a separate layer until it can compile consistently
 # without error.
 RUN set -x \
-    && mkdir -p /usr/src/gevent \
-    && curl -sL "https://github.com/gevent/gevent/releases/download/1.0.1/gevent-1.0.1.tar.gz" \
-        | tar -xzC /usr/src/gevent --strip-components=1 \
-    && cd /usr/src/gevent \
-    && python setup.py install \
+    && pip install gevent==1.0.1 \
     && mkdir -p /usr/src/uwsgi \
-    && rm -rf /usr/src/gevent \
     && curl -sL "http://projects.unbit.it/downloads/uwsgi-2.0.9.tar.gz" \
         | tar -xzC /usr/src/uwsgi --strip-components=1 \
     && cd /usr/src/uwsgi \
