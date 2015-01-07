@@ -21,3 +21,6 @@ RUN set -x \
     && mkdir /usr/lib/uwsgi \
     && cp *.so /usr/lib/uwsgi \
     && rm -rf /usr/src/uwsgi
+
+# Add mime.types
+COPY mime.types /etc/mime.types
