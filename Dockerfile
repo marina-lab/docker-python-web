@@ -1,4 +1,4 @@
-FROM marina/python:2.7.9_r1
+FROM marina/python:2.7.9_r2
 MAINTAINER sprin
 
 # It is assumed our Python web apps are using uwsgi/gevent, so we add them on
