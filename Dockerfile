@@ -6,7 +6,7 @@ MAINTAINER sprin
 COPY build_profile.ini /usr/src/uwsgi/buildconf/
 RUN set -x \
     && pip install gevent==1.0.1 \
-    && curl -sL "http://projects.unbit.it/downloads/uwsgi-2.0.9.tar.gz" \
+    && curl -sL "http://projects.unbit.it/downloads/uwsgi-2.0.10.tar.gz" \
         | tar -xzC /usr/src/uwsgi --strip-components=1 \
     && mkdir /usr/lib/uwsgi \
     && cd /usr/src/uwsgi \
