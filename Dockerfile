@@ -1,5 +1,7 @@
-FROM marina/python:2.7.9_r4
+FROM marina/python:2.7.10_r1
 MAINTAINER sprin
+
+EXPOSE 8080
 
 # It is assumed our Python web apps are using uwsgi/gevent, so we add them on
 # top of the Python layer to create new image.
@@ -25,3 +27,9 @@ RUN yum install -y \
 
 # Add mime.types
 COPY mime.types /etc/mime.types
+
+# Add base uwsgi config
+COPY uwsgi_base.ini /etc/uwsgi/base.ini
+
+# Create a healthcheck.html for haproxy/external uptime monitoring checks
+RUN /bin/echo OK > /opt/healthcheck.html
