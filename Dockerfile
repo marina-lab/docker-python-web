@@ -1,4 +1,4 @@
-FROM marina/python:2.7.10_r1
+FROM python:2.7.10_r1
 MAINTAINER sprin
 
 EXPOSE 8080
@@ -7,7 +7,7 @@ EXPOSE 8080
 # top of the Python layer to create new image.
 COPY build_profile.ini /usr/src/uwsgi/buildconf/
 RUN set -x \
-    && pip install gevent==1.0.2 \
+    && pip --disable-pip-version-check install gevent==1.0.2 \
     && curl -sL "http://projects.unbit.it/downloads/uwsgi-2.0.10.tar.gz" \
         | tar -xzC /usr/src/uwsgi --strip-components=1 \
     && mkdir /usr/lib/uwsgi \
