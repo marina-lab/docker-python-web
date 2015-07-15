@@ -17,6 +17,8 @@ RUN set -x \
     && python uwsgiconfig.py --plugin plugins/gevent build_profile \
     && python uwsgiconfig.py --plugin plugins/transformation_gzip build_profile \
     && python uwsgiconfig.py --plugin plugins/transformation_chunked build_profile \
+    && python uwsgiconfig.py --plugin plugins/router_static build_profile \
+    && python uwsgiconfig.py --plugin plugins/notfound build_profile \
     && cp uwsgi /usr/local/bin \
     && rm -rf /usr/src/uwsgi
 
